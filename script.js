@@ -1,7 +1,9 @@
 const show = document.createElement("h2");
 const show2 = document.createElement("h2");
-const view = document.querySelector('img');
+const view = document.createElement("img");
 const newUl = document.createElement("ul");
+let newLi
+document.body.append(view);
 document.body.append(newUl);
 document.body.append(show);
 document.body.append(show2);
@@ -44,7 +46,7 @@ class Offer {
   }
 }
 class BetterOffer extends Offer {
-  constructor(name, model, price, year,fuel) {
+  constructor(name, model, price, year, fuel) {
     super(name, model, price);
     this.fuel = fuel;
     this.year = year;
@@ -68,53 +70,54 @@ const Sale = {
 };
 
 for (const wypiszOferte in Sale) {
-  let newLi = document.createElement("li");
+  newLi = document.createElement("li");
   let btn = document.createElement("button");
   newUl.append(newLi);
   newUl.append(btn);
-  btn.id+=Sale[wypiszOferte].name
+  btn.id += Sale[wypiszOferte].name;
   btn.textContent = Sale[wypiszOferte].name;
   newLi.textContent +=
     `to jest samochód marki ${Sale[wypiszOferte].name}` + "\n";
   newLi.textContent += Sale[wypiszOferte].model + "\n";
-  newLi.textContent += `rok produkcji to ${Sale[wypiszOferte].year}`+"\n"
+  newLi.textContent += `rok produkcji to ${Sale[wypiszOferte].year}` + "\n";
   newLi.textContent += `cena to ${Sale[wypiszOferte].price} zł`;
 }
-view.style.display = 'flex'
+view.style.display = "flex";
 const showAuto = (e) => {
+  console.log(view);
   if (e.target.matches("#volvo")) {
-    view.setAttribute('src', 'img/Volvo-S60-2014.jpg')
-    view.setAttribute('id', "volvo")
-   }else if(e.target.matches('#peugot')){
-    view.setAttribute('src','img/peugeot-607.jpg')
-    view.setAttribute('id', "peugot")
-   }else if(e.target.matches('#audi')){
-     view.setAttribute('src', 'img/audi-a3.jpg')
-     view.setAttribute('id', "audi")
-   }else if(e.target.matches('#maluch')){
-     view.setAttribute('src', 'img/fiat-126p.jpg')
-     view.setAttribute('id', 'maluch')
-   }else if(e.target.matches('#bmw')){
-     view.setAttribute('src', 'img/BMW-M5-6.jpg')
-     view.setAttribute('id', 'bmw')
-   }
+    view.setAttribute("src", "img/Volvo-S60-2014.jpg");
+    view.setAttribute("id", "volvo");
+  } else if (e.target.matches("#peugot")) {
+    view.setAttribute("src", "img/peugeot-607.jpg");
+    view.setAttribute("id", "peugot");
+  } else if (e.target.matches("#audi")) {
+    view.setAttribute("src", "img/audi-a3.jpg");
+    view.setAttribute("id", "audi");
+  } else if (e.target.matches("#maluch")) {
+    view.setAttribute("src", "img/fiat-126p.jpg");
+    view.setAttribute("id", "maluch");
+  } else if (e.target.matches("#bmw")) {
+    view.setAttribute("src", "img/BMW-M5-6.jpg");
+    view.setAttribute("id", "bmw");
   }
-  const newWindow = (e) =>{
-    if(e.target.matches('#volvo')){
-    window.open('img/Volvo-S60-2014.jpg')
-    }else if(e.target.matches('#peugot')){
-      window.open('img/peugeot-607.jpg')
-    }else if(e.target.matches('#audi')){
-      window.open('img/audi-a3.jpg')
-    }else if(e.target.matches('#maluch')){
-      window.open('img/fiat-126p.jpg')
-    }else if(e.target.matches('#bmw')){
-      window.open('img/BMW-M5-6.jpg')
-    }
+};
+const newWindow = (e) => {
+  if (e.target.matches("#volvo")) {
+    window.open("img/Volvo-S60-2014.jpg");
+  } else if (e.target.matches("#peugot")) {
+    window.open("img/peugeot-607.jpg");
+  } else if (e.target.matches("#audi")) {
+    window.open("img/audi-a3.jpg");
+  } else if (e.target.matches("#maluch")) {
+    window.open("img/fiat-126p.jpg");
+  } else if (e.target.matches("#bmw")) {
+    window.open("img/BMW-M5-6.jpg");
   }
+};
 
 newUl.addEventListener("click", showAuto);
-view.addEventListener('click', newWindow)
+view.addEventListener("click", newWindow);
 
 // const x = document.createElement('ul');
 // document.body.append(x)
