@@ -38,4 +38,5 @@ img{
     display: none;
     height: auto;
     width: 500px;
+    border-radius: 10%;
 }

@@ -44,7 +44,7 @@ class Offer {
   }
 }
 class BetterOffer extends Offer {
-  constructor(name, model, price, fuel, year) {
+  constructor(name, model, price, year,fuel) {
     super(name, model, price);
     this.fuel = fuel;
     this.year = year;
@@ -60,11 +60,11 @@ class BetterOffer extends Offer {
 // console.log("-----------------------------");
 
 const Sale = {
-  offer1: new BetterOffer("volvo", "s60", 30303),
-  offer2: new BetterOffer("peugot", "607", 4000),
-  offer3: new BetterOffer("audi", "a30", 44444),
-  offer4: new BetterOffer("maluch", "126p", 1000),
-  offer5: new BetterOffer("bmw", "m5", 20000),
+  offer1: new BetterOffer("volvo", "s60", 59000, 2014),
+  offer2: new BetterOffer("peugot", "607", 8000, 2005),
+  offer3: new BetterOffer("audi", "a3", 29000, 2012),
+  offer4: new BetterOffer("maluch", "126p", 1000, 1989),
+  offer5: new BetterOffer("bmw", "m5", 99000, 2020),
 };
 
 for (const wypiszOferte in Sale) {
@@ -77,15 +77,23 @@ for (const wypiszOferte in Sale) {
   newLi.textContent +=
     `to jest samochód marki ${Sale[wypiszOferte].name}` + "\n";
   newLi.textContent += Sale[wypiszOferte].model + "\n";
+  newLi.textContent += `rok produkcji to ${Sale[wypiszOferte].year}`+"\n"
   newLi.textContent += `cena to ${Sale[wypiszOferte].price} zł`;
 }
+view.style.display = 'flex'
 const showAuto = (e) => {
   if (e.target.matches("#volvo")) {
-    view.style.display = 'flex'
-    view.setAttribute('src', 'https://cdn.pixabay.com/photo/2017/12/25/11/32/cat-3038243_960_720.jpg')
-   
+    view.setAttribute('src', 'img/Volvo-S60-2014.jpg')
+   }else if(e.target.matches('#peugot')){
+    view.setAttribute('src','img/peugeot-607.jpg')
+   }else if(e.target.matches('#audi')){
+     view.setAttribute('src', 'img/audi-a3.jpg')
+   }else if(e.target.matches('#maluch')){
+     view.setAttribute('src', 'img/fiat-126p.jpg')
+   }else if(e.target.matches('#bmw')){
+     view.setAttribute('src', 'img/BMW-M5-6.jpg')
+   }
   }
-};
 
 newUl.addEventListener("click", showAuto);
 
