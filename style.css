@@ -33,3 +33,9 @@ color: brown;
 .show {
     display: flex;
 }
+img{
+    margin: auto;
+    display: none;
+    height: auto;
+    width: 500px;
+}

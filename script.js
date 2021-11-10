@@ -1,6 +1,6 @@
 const show = document.createElement("h2");
 const show2 = document.createElement("h2");
-const btn = document.querySelector("button");
+const view = document.querySelector('img');
 const newUl = document.createElement("ul");
 document.body.append(newUl);
 document.body.append(show);
@@ -69,15 +69,25 @@ const Sale = {
 
 for (const wypiszOferte in Sale) {
   let newLi = document.createElement("li");
-  newUl.append(newLi);
   let btn = document.createElement("button");
+  newUl.append(newLi);
   newUl.append(btn);
+  btn.id+=Sale[wypiszOferte].name
   btn.textContent = Sale[wypiszOferte].name;
   newLi.textContent +=
     `to jest samochód marki ${Sale[wypiszOferte].name}` + "\n";
   newLi.textContent += Sale[wypiszOferte].model + "\n";
   newLi.textContent += `cena to ${Sale[wypiszOferte].price} zł`;
 }
+const showAuto = (e) => {
+  if (e.target.matches("#volvo")) {
+    view.style.display = 'flex'
+    view.setAttribute('src', 'https://cdn.pixabay.com/photo/2017/12/25/11/32/cat-3038243_960_720.jpg')
+   
+  }
+};
+
+newUl.addEventListener("click", showAuto);
 
 // const x = document.createElement('ul');
 // document.body.append(x)
