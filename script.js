@@ -33,24 +33,24 @@ document.body.append(show2);
 // show.textContent = `spalanie za 100km jazdy to : ${oferta.koszt100km()} zł`;
 // show2.textContent = `wiek twojego auta to: ${oferta.wiekSamochodu()}`
 let cost = 6;
-class Oferta {
-  constructor(marka, model, cena) {
-    this.marka = marka;
+class Offer {
+  constructor(name, model, price) {
+    this.name = name;
     this.model = model;
-    this.cena = cena;
+    this.price = price;
   }
   fuelCost() {
     show.textContent = `srednia cena za przejechane 100km to`;
   }
 }
-class BetterOffer extends Oferta {
-  constructor(marka, model, cena, spalanie, rok) {
-    super(marka, model, cena);
-    this.spalanie = spalanie;
-    this.rok = rok;
+class BetterOffer extends Offer {
+  constructor(name, model, price, fuel, year) {
+    super(name, model, price);
+    this.fuel = fuel;
+    this.year = year;
   }
   awarydge() {
-    return this.spalanie * cost;
+    return this.fuel * cost;
   }
 }
 // const newCar = new BetterOffer("Maluch", "126p", 2000, 9.5, 1990);
@@ -59,24 +59,24 @@ class BetterOffer extends Oferta {
 // console.log(newCar);
 // console.log("-----------------------------");
 
-const Komis = {
-  oferta1: new BetterOffer("volvo", "s60", 30303),
-  oferta2: new BetterOffer("peugot", "607", 4000),
-  oferta3: new BetterOffer("audi", "a30", 44444),
-  oferta4: new BetterOffer("maluch", "126p", 1000),
-  oferta5: new BetterOffer("bmw", "m5", 20000),
+const Sale = {
+  offer1: new BetterOffer("volvo", "s60", 30303),
+  offer2: new BetterOffer("peugot", "607", 4000),
+  offer3: new BetterOffer("audi", "a30", 44444),
+  offer4: new BetterOffer("maluch", "126p", 1000),
+  offer5: new BetterOffer("bmw", "m5", 20000),
 };
 
-for (const wypiszOferte in Komis) {
+for (const wypiszOferte in Sale) {
   let newLi = document.createElement("li");
   newUl.append(newLi);
   let btn = document.createElement("button");
   newUl.append(btn);
-  btn.textContent = Komis[wypiszOferte].marka;
+  btn.textContent = Sale[wypiszOferte].name;
   newLi.textContent +=
-    `to jest samochód marki ${Komis[wypiszOferte].marka}` + "\n";
-  newLi.textContent += Komis[wypiszOferte].model + "\n";
-  newLi.textContent += `cena to ${Komis[wypiszOferte].cena} zł`;
+    `to jest samochód marki ${Sale[wypiszOferte].name}` + "\n";
+  newLi.textContent += Sale[wypiszOferte].model + "\n";
+  newLi.textContent += `cena to ${Sale[wypiszOferte].price} zł`;
 }
 
 // const x = document.createElement('ul');
