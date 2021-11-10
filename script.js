@@ -84,18 +84,37 @@ view.style.display = 'flex'
 const showAuto = (e) => {
   if (e.target.matches("#volvo")) {
     view.setAttribute('src', 'img/Volvo-S60-2014.jpg')
+    view.setAttribute('id', "volvo")
    }else if(e.target.matches('#peugot')){
     view.setAttribute('src','img/peugeot-607.jpg')
+    view.setAttribute('id', "peugot")
    }else if(e.target.matches('#audi')){
      view.setAttribute('src', 'img/audi-a3.jpg')
+     view.setAttribute('id', "audi")
    }else if(e.target.matches('#maluch')){
      view.setAttribute('src', 'img/fiat-126p.jpg')
+     view.setAttribute('id', 'maluch')
    }else if(e.target.matches('#bmw')){
      view.setAttribute('src', 'img/BMW-M5-6.jpg')
+     view.setAttribute('id', 'bmw')
    }
+  }
+  const newWindow = (e) =>{
+    if(e.target.matches('#volvo')){
+    window.open('img/Volvo-S60-2014.jpg')
+    }else if(e.target.matches('#peugot')){
+      window.open('img/peugeot-607.jpg')
+    }else if(e.target.matches('#audi')){
+      window.open('img/audi-a3.jpg')
+    }else if(e.target.matches('#maluch')){
+      window.open('img/fiat-126p.jpg')
+    }else if(e.target.matches('#bmw')){
+      window.open('img/BMW-M5-6.jpg')
+    }
   }
 
 newUl.addEventListener("click", showAuto);
+view.addEventListener('click', newWindow)
 
 // const x = document.createElement('ul');
 // document.body.append(x)

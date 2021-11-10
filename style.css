@@ -39,4 +39,10 @@ img{
     height: auto;
     width: 500px;
     border-radius: 10%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+img:hover{
+    opacity: 0.8;
+    box-shadow: 0 3px 18px 0 rgba(0, 0, 0, 1.5), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
 }
