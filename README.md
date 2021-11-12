@@ -6,4 +6,5 @@ Na podstawie klasy BetterOffer stworzyłem obiekt Sale i przypisałem do niego k
 Nadałem lisynera na listę UL, która targetuje ID buttona, po kliknięciu otwiera się obraz.
 Po wprowadzeniu nowego klucza i wartości do obiektu Sale, dane sa dynamicznie wprowadzane na stronę(pętka for in)
 Ustawiłem e.target na otwieranie obrazów w nowym oknie
+Utworzyłem popup który na podstawie danych prowadzonych przez użytkownika oblicza koszt podróży 
 

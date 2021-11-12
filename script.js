@@ -3,6 +3,7 @@ const show2 = document.createElement("h2");
 const view = document.createElement("img");
 const newUl = document.createElement("ul");
 let newLi
+newUl.style.textAlign = 'center'
 document.body.append(view);
 document.body.append(newUl);
 document.body.append(show);
@@ -118,6 +119,7 @@ const newWindow = (e) => {
 
 newUl.addEventListener("click", showAuto);
 view.addEventListener("click", newWindow);
+
 
 // const x = document.createElement('ul');
 // document.body.append(x)

@@ -34,8 +34,29 @@
 
   <body>
   <h1 style="font-size: 50px;">SPRAWDŹ SAMOCHÓD</h1>
-  
-  
+
+  <button class="open-popup">oblicz koszty podróży</button>
+<div class="popup">
+    <h3>Sprawdż koszt przejazdu:</h3>
+  <div class="popup-body">
+    <div class="fuel-main">
+        <p class="fuel">koszt jednego litra paliwa:</p>
+        <input type="number" class="fuel-price" placeholder="litra paliwa..." required>
+    </div>
+    <div class="average-main">
+      <p class="average">średnie spalaniena 100 kilometrów:</p>
+        <input type="number" class="average-price" placeholder="średnia..." required>
+    </div>
+    <div class="trip-main">
+      <p class="trip">długośc trasy w kilometrach:</p>
+        <input type="number" class="trip-price" placeholder="trasa..." required>
+    </div>
+    <button class="accept-btn">zatwierdź</button>
+    <button class="close-btn">zamknij</button>
+    <p class="show-score"></p>
+  </div>
+</div>
     <script src="script.js"></script>
+    <script src="popup_script.js"></script>
   </body>
 </html>
