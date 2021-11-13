@@ -35,7 +35,7 @@ document.body.append(show2);
 // oferta.age = 2000;
 // show.textContent = `spalanie za 100km jazdy to : ${oferta.koszt100km()} zł`;
 // show2.textContent = `wiek twojego auta to: ${oferta.wiekSamochodu()}`
-let cost = 6;
+
 class Offer {
   constructor(name, model, price) {
     this.name = name;
@@ -85,7 +85,6 @@ for (const wypiszOferte in Sale) {
 }
 view.style.display = "flex";
 const showAuto = (e) => {
-  console.log(view);
   if (e.target.matches("#volvo")) {
     view.setAttribute("src", "img/Volvo-S60-2014.jpg");
     view.setAttribute("id", "volvo");
@@ -119,6 +118,7 @@ const newWindow = (e) => {
 
 newUl.addEventListener("click", showAuto);
 view.addEventListener("click", newWindow);
+
 
 
 // const x = document.createElement('ul');
