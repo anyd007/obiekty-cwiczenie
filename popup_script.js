@@ -47,5 +47,10 @@ openPopupBtn.addEventListener("click", () => {
 });
 closePopupBtn.addEventListener("click", () => {
   popupMain.style.display = "none";
+  popupAverageInput.value = ""
+    popupTripInput.value = "" 
+    popupFuelInput.value = ""
+    allInputs.forEach((inps) => inps.value = inps.style.backgroundColor = "white");
+    popupResult.textContent = "";
 });
 
