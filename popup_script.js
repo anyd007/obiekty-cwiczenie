@@ -7,6 +7,7 @@ const popupTripInput = document.querySelector(".trip-price");
 const acceptBtn = document.querySelector(".accept-btn");
 const openPopupBtn = document.querySelector(".open-popup");
 const closePopupBtn = document.querySelector(".close-btn");
+const title = document.querySelector('h1')
 
 const showResult = () => {
   allInputs.forEach((inps) => {
@@ -44,8 +45,14 @@ acceptBtn.addEventListener("click", showResult);
 
 openPopupBtn.addEventListener("click", () => {
   popupMain.style.display = "flex";
+  newUl.classList.add('blur')
+  title.classList.add('blur')
+  openPopupBtn.classList.add('blur')
 });
 closePopupBtn.addEventListener("click", () => {
+    newUl.classList.remove('blur')
+    title.classList.remove('blur')
+    openPopupBtn.classList.remove('blur')
   popupMain.style.display = "none";
   popupAverageInput.value = ""
     popupTripInput.value = "" 
