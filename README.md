@@ -8,4 +8,5 @@ Po wprowadzeniu nowego klucza i wartości do obiektu Sale, dane sa dynamicznie w
 Ustawiłem e.target na otwieranie obrazów w nowym oknie
 Utworzyłem popup który na podstawie danych prowadzonych przez użytkownika oblicza koszt podróży.
 Dodałem event keyup na wszystkie inputy
+W JS dodałem popup który edytuje wpisy w obiekcie
 

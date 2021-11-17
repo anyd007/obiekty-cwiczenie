@@ -75,31 +75,61 @@ for (const wypiszOferte in Sale) {
   newUl.append(newLi);
   let btn = document.createElement("button");
   let btn2 = document.createElement("button");
+  let btn3 = document.createElement("button");
   newUl.append(btn);
   newUl.append(btn2);
+  newUl.append(btn3);
+
   let editPopup = document.createElement("div"); //twozenie popup`a
-  editPopup.classList.add("popup");
+  editPopup.classList.add("change-popup-main");
   let editName = document.createElement("input");
   let editModel = document.createElement("input");
   let editPrice = document.createElement("input");
   let editYear = document.createElement("input");
   let editBtn = document.createElement("button");
+  editPrice.setAttribute('type', 'number')
+  editYear.setAttribute('type', 'number')
   editBtn.textContent = "zmień";
   editPopup.append(editName, editModel, editPrice, editYear, editBtn);
   newUl.append(editPopup);
+  let text;
 
+  btn3.className = "change-popup";
+  btn3.textContent = "zmień wartości";
   btn2.className = "hidden";
   btn2.textContent = "ukryj/pokaż";
-  btn.id += Sale[wypiszOferte].name;
-  btn.textContent = Sale[wypiszOferte].name;
+  btn.id += Sale[wypiszOferte].name 
+  btn.textContent = `${Sale[wypiszOferte].name} zdjęcie`
 
-  newLi.textContent = `to jest samochód marki ${Sale[wypiszOferte].name} ${Sale[wypiszOferte].model}, rok produkcji to ${Sale[wypiszOferte].year}, cena to ${Sale[wypiszOferte].price} zł`;
- 
+  text =
+    newLi.textContent = `to jest samochód marki ${Sale[wypiszOferte].name} ${Sale[wypiszOferte].model}, rok produkcji to ${Sale[wypiszOferte].year}, cena to ${Sale[wypiszOferte].price} zł`;
+
   btn2.addEventListener("click", (e) => {
     if (e.target.matches(".hidden")) {
-      newLi.classList.toggle('text-hide')
-      btn.classList.toggle('hide')
-    } 
+      newLi.classList.toggle("text-hide");
+      btn.classList.toggle("hide");
+      btn3.classList.toggle("hide");
+      newLi.textContent = text;
+    }
+  });
+  let newName
+  btn3.addEventListener("click", () => {
+    editPopup.style.display = "flex";
+    editName.value = Sale[wypiszOferte].name 
+    editModel.value = Sale[wypiszOferte].model;
+    editYear.value = Sale[wypiszOferte].year;
+    editPrice.value = Sale[wypiszOferte].price;
+  });
+
+  editBtn.addEventListener("click", function (e) {
+    if (e.target.matches("button")) {
+      newName = (this.name = editName.value);
+      let newModel = (this.model = editModel.value);
+      let newYear = (this.year = editYear.value);
+      let newPrice = (this.price = editPrice.value);
+      editPopup.style.display = "none";
+      newLi.textContent = `to jest samochód marki ${newName} ${newModel}, rok produkcji to ${newYear}, cena to ${newPrice} zł`;
+    }
   });
 }
 view.style.display = "flex";
