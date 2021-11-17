@@ -2,8 +2,8 @@ const show = document.createElement("h2");
 const show2 = document.createElement("h2");
 const view = document.createElement("img");
 const newUl = document.createElement("ul");
-let newLi
-newUl.style.textAlign = 'center'
+let newLi;
+newUl.style.textAlign = "center";
 document.body.append(view);
 document.body.append(newUl);
 document.body.append(show);
@@ -71,17 +71,36 @@ const Sale = {
 };
 
 for (const wypiszOferte in Sale) {
-  newLi = document.createElement("li");
-  let btn = document.createElement("button");
+  let newLi = document.createElement("li");
   newUl.append(newLi);
+  let btn = document.createElement("button");
+  let btn2 = document.createElement("button");
   newUl.append(btn);
+  newUl.append(btn2);
+  let editPopup = document.createElement("div"); //twozenie popup`a
+  editPopup.classList.add("popup");
+  let editName = document.createElement("input");
+  let editModel = document.createElement("input");
+  let editPrice = document.createElement("input");
+  let editYear = document.createElement("input");
+  let editBtn = document.createElement("button");
+  editBtn.textContent = "zmień";
+  editPopup.append(editName, editModel, editPrice, editYear, editBtn);
+  newUl.append(editPopup);
+
+  btn2.className = "hidden";
+  btn2.textContent = "ukryj/pokaż";
   btn.id += Sale[wypiszOferte].name;
   btn.textContent = Sale[wypiszOferte].name;
-  newLi.textContent +=
-    `to jest samochód marki ${Sale[wypiszOferte].name}` + "\n";
-  newLi.textContent += Sale[wypiszOferte].model + "\n";
-  newLi.textContent += `rok produkcji to ${Sale[wypiszOferte].year}` + "\n";
-  newLi.textContent += `cena to ${Sale[wypiszOferte].price} zł`;
+
+  newLi.textContent = `to jest samochód marki ${Sale[wypiszOferte].name} ${Sale[wypiszOferte].model}, rok produkcji to ${Sale[wypiszOferte].year}, cena to ${Sale[wypiszOferte].price} zł`;
+ 
+  btn2.addEventListener("click", (e) => {
+    if (e.target.matches(".hidden")) {
+      newLi.classList.toggle('text-hide')
+      btn.classList.toggle('hide')
+    } 
+  });
 }
 view.style.display = "flex";
 const showAuto = (e) => {
@@ -118,8 +137,6 @@ const newWindow = (e) => {
 
 newUl.addEventListener("click", showAuto);
 view.addEventListener("click", newWindow);
-
-
 
 // const x = document.createElement('ul');
 // document.body.append(x)
